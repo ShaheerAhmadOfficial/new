@@ -14,18 +14,28 @@ import { Trans, useTranslation } from 'react-i18next'
 
 function About() {
   const { t } = useTranslation('translation', { keyPrefix: 'about' })
-  const intro: string[] = t('intro', { returnObjects: true })
-  const clanTitle: string = t('clan_title')
-  const clan: string[] = t('clan', { returnObjects: true })
-  const methodTitle: string = t('method_title')
-  const method: string[] = t('method', { returnObjects: true })
+
+  // ✅ SAFE guards so the page never crashes even if translations load late
+  const introRaw = t('intro', { returnObjects: true })
+  const intro: string[] = Array.isArray(introRaw) ? introRaw : []
+
+  const clanTitleRaw = t('clan_title', { returnObjects: true })
+  const clanTitle: string[] = Array.isArray(clanTitleRaw) ? clanTitleRaw : ['Products', '']
+
+  const clanRaw = t('clan', { returnObjects: true })
+  const clan: string[] = Array.isArray(clanRaw) ? clanRaw : []
+
+  const methodTitle = t('method_title') as string
+
+  const methodRaw = t('method', { returnObjects: true })
+  const method: string[] = Array.isArray(methodRaw) ? methodRaw : []
 
   return (
     <Section name="about" className={style.root}>
       <Container grid>
         <Row start={3} end={1}>
           <div className={style.section}>
-            <ContentBlock key={intro[0]}>
+            <ContentBlock key={intro[0] || 'intro-0'}>
               <div>
                 <Trans
                   i18nKey={`about.intro.0`}
@@ -40,9 +50,10 @@ function About() {
           </div>
         </Row>
       </Container>
+
       <Container grid outerRightOnMobile>
         <Row start={1} end={2}>
-          <Heading key={intro[1]}>
+          <Heading key={intro[1] || 'intro-1'}>
             <Trans
               i18nKey="about.intro.1"
               components={{
@@ -53,10 +64,11 @@ function About() {
           </Heading>
         </Row>
       </Container>
+
       <Container grid>
         <Row start={2} end={1}>
-          <ContentBlock key={intro[2]}>
-            {intro.slice(2).map((txt, i) => (
+          <ContentBlock key={intro[2] || 'intro-2'}>
+            {(intro.length >= 3 ? intro.slice(2) : []).map((_, i) => (
               <div key={i}>
                 <Trans
                   i18nKey={`about.intro.${i + 2}`}
@@ -71,23 +83,25 @@ function About() {
           </ContentBlock>
         </Row>
       </Container>
+
       <Container grid outerRightOnMobile>
         <Row start={2} end={2}>
           <div className={style.section}>
-            <Heading alignRight key={clanTitle[0]}>
+            <Heading alignRight key={(clanTitle[0] || 'Products') + '-title'}>
               <>
-                {clanTitle[0]}
-                <br /> {clanTitle[1]}
+                {clanTitle[0] || 'Products'}
+                <br /> {clanTitle[1] || ''}
               </>
             </Heading>
           </div>
         </Row>
       </Container>
+
       <Container grid>
         <Row start={2} end={2}>
           <div className={style.columns}>
-            <ContentBlock key={clan[0]}>
-              {clan.slice(0, 2).map((txt, i) => (
+            <ContentBlock key={clan[0] || 'clan-0'}>
+              {(clan.length ? clan.slice(0, 2) : []).map((_, i) => (
                 <div key={i}>
                   <Trans
                     i18nKey={`about.clan.${i}`}
@@ -101,8 +115,9 @@ function About() {
                 </div>
               ))}
             </ContentBlock>
-            <ContentBlock key={clan[2]}>
-              {clan.slice(2).map((txt, i) => (
+
+            <ContentBlock key={clan[2] || 'clan-2'}>
+              {(clan.length >= 3 ? clan.slice(2) : []).map((_, i) => (
                 <div key={i}>
                   <Trans
                     i18nKey={`about.clan.${i + 2}`}
@@ -119,40 +134,44 @@ function About() {
           </div>
         </Row>
       </Container>
+
       <Container grid outerRightOnMobile>
         <Row start={1} end={3}>
           <div className={style.section}>
-            <Heading key={methodTitle}>
+            <Heading key={methodTitle || 'method-title'}>
               <Trans i18nKey="about.method_title" components={{ pre: <pre /> }} />
             </Heading>
           </div>
         </Row>
       </Container>
+
       <Container grid>
         <Row start={2} end={1}>
-          <ContentBlock key={method[0]}>
+          <ContentBlock key={method[0] || 'method-0'}>
             <div>
               <Trans i18nKey={`about.method.0`} />
             </div>
           </ContentBlock>
         </Row>
       </Container>
+
       <Container grid outerRightOnMobile>
         <Row start={1} end={3}>
           <div className={style.section}>
-            <Heading key={method[1]}>
+            <Heading key={method[1] || 'method-1'}>
               <Trans i18nKey="about.method.1" />
             </Heading>
-            <Heading alignRight key={method[2]}>
+            <Heading alignRight key={method[2] || 'method-2'}>
               <Trans i18nKey="about.method.2" />
             </Heading>
           </div>
         </Row>
       </Container>
+
       <Container grid>
         <Row start={1} end={1}>
           <div className={style.section}>
-            <ContentBlock key={method[3]}>
+            <ContentBlock key={method[3] || 'method-3'}>
               <div>
                 <Trans i18nKey={`about.method.3`} />
               </div>
@@ -160,6 +179,7 @@ function About() {
           </div>
         </Row>
       </Container>
+
       <Container grid>
         <Row start={1} end={3}>
           <ContentBlock>
@@ -168,7 +188,7 @@ function About() {
               <ListItem end="250+">Videos edited</ListItem>
               <ListItem end="10+">Personal projects</ListItem>
               <ListItem end="∞">Digital products</ListItem>
-              <ListItem end="Tool‑based">Subscription services</ListItem>
+              <ListItem end="Tool-based">Subscription services</ListItem>
             </List>
           </ContentBlock>
         </Row>
@@ -176,4 +196,5 @@ function About() {
     </Section>
   )
 }
+
 export default About
