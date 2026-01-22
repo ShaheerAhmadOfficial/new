@@ -1,63 +1,23 @@
-{
-  "loading": "Loading",
-  "enter": "Enter",
-  "role": "Role",
-  "agency": "Agency",
-  "completed": "Completed",
-  "riconoscimenti": "Awards",
-  "close": "Close",
-  "close project": "Close this project",
-  "go to project": "Go to",
-  "intro": {
-    "p1": {
-      "l1": "WordPress, Video Editing & CyberSec",
-      "l2": "8 years of experience"
-    },
-    "p2": {
-      "l1": "Information gathering & Digital Products",
-      "l2": "Top‑notch services that exceed expectations"
-    },
-    "p3": {
-      "l1": "Creative technologist & info ninja"
-    },
-    "p4": {
-      "l1": "Hey, I'm Shaheer!"
-    },
-    "scroll_cta": {
-      "line1": "Scroll down",
-      "line2": "to know more about me"
-    }
-  },
-  "portfolio": {
-    "intro": [
-      "8 years of experience",
-      "in WordPress, Video Editing, CyberSec",
-      "I craft digital products and gather information with precision.",
-      "Providing paid premium templates, courses, subscriptions and more."
-    ],
-    "portfolio": [
-      "Services",
-      "I provide high‑quality services tailored to your needs.<br /><br />",
-      "WordPress dev, Video editing, Cybersec, Digital products"
-    ]
-  },
-  "about": {
-    "intro": [
-      "I'm from Pakistan - Multan and have 8y ears of experience in tech working across WordPress, video editing and cyber security.",
-      "I excel at information gathering to drive the best results.",
-      "I sell some top-notch on demand digital products that you may think you can never have.",
-      ""
-    ],
-    "clan_title": ["Products", ""],
-    "clan": [
-      "I provide any kind of digital product that you need for yourself, for your business, or for your life.",
-      "Premium Notion templates, courses, PDF guides and bundles.",
-      "Costly subscriptions like ChatGPT, Google Gemini, Grammarly, Quillbot and more.",
-      "Unbeatable quality at affordable prices."
-    ]
-  },
-  "contact": {
-    "intro": "Get in touch with me by writing to",
-    "social_intro": "I'll try to be active on social media but the best way to contact me faster is WhatsApp"
-  }
+"about": {
+  "intro": [
+    "I’m Shaheer — from Multan, Pakistan — with 8+ years of experience across WordPress, video editing, and cyber security.",
+    "I’m especially strong at information gathering: deep research, OSINT-style thinking, and finding what others miss.",
+    "I also run a digital products business based on customer demand.",
+    "From premium Notion templates and courses to bundles and subscriptions — I can arrange what you need at an affordable price.",
+    ""
+  ],
+  "clan_title": ["Products", ""],
+  "clan": [
+    "I provide any kind of digital product you need — for yourself, your business, or your work.",
+    "Premium Notion templates, courses, PDF guides, and bundles.",
+    "Costly subscriptions like ChatGPT, Google Gemini, Grammarly, Quillbot and more.",
+    "Unbeatable quality at affordable prices."
+  ],
+  "method_title": "Extras",
+  "method": [
+    "Married, based in Multan — always building and improving.",
+    "I love doing creative techy things and turning ideas into clean, usable work.",
+    "I go deep into research (including dark-web spaces) to discover useful tools and resources.",
+    "Curiosity + consistency: that’s basically my fuel."
+  ]
 }
